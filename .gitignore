@@ -1,0 +1,8 @@
+.vscode/
+.env
+env/
+images/
+*.log
+*.txt
+*.checkpoint
+!requirements.txt
