@@ -3,10 +3,6 @@ import requests
 from dotenv import load_dotenv
 
 
-def get_file_extension(url):
-    return url.split('.')[-1:][0]
-
-
 def fetch_hubble_images(url, collections, path):
     for collection in collections:
         print(collection + ' collection...')
@@ -20,7 +16,7 @@ def fetch_hubble_images(url, collections, path):
                 if response.ok:
                     response = response.json()
                     last_image_url = response['image_files'][-1:][0]['file_url']
-                    extension = get_file_extension(last_image_url)
+                    _, extension = os.path.splitext(last_image_url)
                     filename = path + '/' + str(image_id) + '.' + extension
                     response = requests.get(last_image_url)
                     if response.ok:
