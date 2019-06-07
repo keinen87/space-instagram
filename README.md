@@ -17,14 +17,16 @@ pip install -r requirements.txt
 
 - LOGIN
 - PASSWORD
-- PATH
+- PATH_TO_IMAGES
+
+Default value of `PATH_TO_IMAGES` is `images`
 
 .env example:
 
 ```
 LOGIN=user
 PASSWORD=PassWord
-PATH=images
+PATH_TO_IMAGES=images
 ```
 ### How to get
 

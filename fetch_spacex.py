@@ -22,7 +22,7 @@ def fetch_spacex_last_launchage(url, path):
 if __name__ == '__main__':
     load_dotenv()
 
-    path = os.getenv('PATH', 'images') 
+    path = os.getenv('PATH_TO_IMAGES', 'images') 
     if not os.path.exists(path):
       os.makedirs(path)
 

@@ -35,7 +35,7 @@ def fetch_hubble_images(url, collections, path):
 
 if __name__ == '__main__':
     load_dotenv()
-    path = os.environ['PATH'] 
+    path = os.environ['PATH_TO_IMAGES'] 
     if not os.path.exists(path):
       os.makedirs(path)
     

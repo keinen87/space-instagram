@@ -15,7 +15,7 @@ def upload_images_to_instagram(path, bot_obj):
 if __name__ == '__main__':
     load_dotenv()
 
-    path = os.environ['PATH'] 
+    path = os.getenv('PATH_TO_IMAGES', 'images') 
     if not os.path.exists(path):
       os.makedirs(path)
         
