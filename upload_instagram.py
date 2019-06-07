@@ -12,6 +12,7 @@ def upload_images_to_instagram(path, bot_obj):
         if isfile(joinpath(path, image_file)):
             filename = image_file.replace(path, '')
             bot_obj.upload_photo(path + image_file, caption=filename)
+    return True
 
 if __name__ == '__main__':
     load_dotenv()
@@ -23,4 +24,7 @@ if __name__ == '__main__':
     password = os.environ['PASSWORD']
     bot = Bot()
     bot.login(username=username, password=password)
-    upload_images_to_instagram(path, bot)
+    if upload_images_to_instagram(path, bot):
+        print('Done!')
+    else:
+        print('Error during uploading!')

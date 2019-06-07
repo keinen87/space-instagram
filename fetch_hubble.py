@@ -23,12 +23,12 @@ def fetch_hubble_images(url, collections, path):
                         with open(filename, 'wb') as file:
                             file.write(response.content)
                     else:
-                        print('URL is not available')
+                        return False
                 else:
-                    print('URL is not available')
+                    return False
         else:
-            print('URL is not available')
-    print('Done!')
+            return False
+    return True
 
 if __name__ == '__main__':
     load_dotenv()
@@ -37,4 +37,7 @@ if __name__ == '__main__':
 
     hubble_images_url = 'http://hubblesite.org/api/v3/images/'
     collections = ['holiday_cards', 'wallpaper']
-    fetch_hubble_images(hubble_images_url, collections, path)
+    if fetch_hubble_images(hubble_images_url, collections, path):
+        print('Done!')
+    else:
+        print('URL is not available')
