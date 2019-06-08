@@ -13,11 +13,7 @@ def fetch_spacex_last_launchage(url, path):
             if response.ok:
                 with open(filename, 'wb') as file:
                     file.write(response.content)
-            else:
-                return False
-    else:
-        return False
-    return True
+
 
 if __name__ == '__main__':
     load_dotenv()
@@ -26,7 +22,6 @@ if __name__ == '__main__':
     os.makedirs(path, exist_ok=False)
 
     spacex_url = 'https://api.spacexdata.com/v3/launches/latest'
-    if fetch_spacex_last_launchage(spacex_url, path):
-        print('Done!')
-    else:
-        print('URL is not available')
+    fetch_spacex_last_launchage(spacex_url, path)
+
+

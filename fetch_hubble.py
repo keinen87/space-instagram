@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 
 def fetch_hubble_images(url, collections, path):
     for collection in collections:
-        print(collection + ' collection...')
         response = requests.get(url + '{}'.format(collection))
         if response.ok:
             response = response.json()
@@ -37,7 +36,5 @@ if __name__ == '__main__':
 
     hubble_images_url = 'http://hubblesite.org/api/v3/images/'
     collections = ['holiday_cards', 'wallpaper']
-    if fetch_hubble_images(hubble_images_url, collections, path):
-        print('Done!')
-    else:
-        print('URL is not available')
+    fetch_hubble_images(hubble_images_url, collections, path)
+
