@@ -8,7 +8,7 @@ def fetch_spacex_last_launchage(url, path):
     if response.ok:
         images_urls = [url for url in response.json()['links']['flickr_images']]
         for index, url in enumerate(images_urls):
-            filename = path + '/' + 'space_{}.jpg'.format(index+1)
+            filename = '{path}/space_{index}.jpg'.format(path=path, index=index+1)
             response = requests.get(url)
             if response.ok:
                 with open(filename, 'wb') as file:
