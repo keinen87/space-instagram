@@ -7,10 +7,10 @@ from os.path import join as joinpath
 
 
 def upload_images_to_instagram(path, bot_obj):
-    for image_file in listdir(path):
-        if isfile(os.path.join(path, image_file)):
-            filename = image_file.replace(path, '')
-            bot_obj.upload_photo(os.path.join(path, image_file), caption=filename)
+    files = os.listdir(path)
+    images = filter(lambda x: x.endswith(('.jpg', '.png')), files)
+    for image in images:
+        bot_obj.upload_photo(os.path.join(path, image), caption=image)
 
 if __name__ == '__main__':
     load_dotenv()
